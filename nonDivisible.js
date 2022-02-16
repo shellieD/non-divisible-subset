@@ -1,5 +1,4 @@
 
-
 function nonDivisibleSubset(s, k) {
     // If k is 4, then only remainders 0, 1, 2, 3 are possible.
     // Here we are creating an array where all values are 0, to the length of k which will be used to 
@@ -7,9 +6,7 @@ function nonDivisibleSubset(s, k) {
     let remainderCount = new Array(k).fill(0); 
     for (let i in s){ //loop finds remainder after each value in s % k - adds 1 to remainderCount for each found
         remainder = s[i] % k;
-        console.log(remainder);
-        remainderCount[remainder] +=1;
-        console.log(remainderCount);
+        remainderCount[remainder] += 1;
     }
 
     // Only one number that is exactly divisible by k can be added to the subset
@@ -17,7 +14,6 @@ function nonDivisibleSubset(s, k) {
     // if there are no numbers exactly divisible, add nothing to subset if there are more than one only add 1.
     // and add it to the subset total.
     subset = (Math.min(remainderCount[0], 1));
-    console.log(subset);
 
     // If k is even, then only one number where K % 2 == 0 can be added to the subset
     // If there are no numbers where K % 2 == 0 then add nothing to the subset. 
@@ -34,7 +30,9 @@ function nonDivisibleSubset(s, k) {
     }
     return subset;
 }
-    // need to check for pairs where the remainders == k 
 
-nonDivisibleSubset([1, 7, 2, 4], 3);
+nonDivisibleSubset([1, 7, 2, 4] 3);
+
+
+
 
