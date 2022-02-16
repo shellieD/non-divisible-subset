@@ -33,6 +33,7 @@ function nonDivisibleSubset(s, k) {
         subset += (Math.max(remainderCount[i], remainderCount[k-i]));
         console.log(subset);
     }
+    return subset;
 }
     // need to check for pairs where the remainders == k 
 
