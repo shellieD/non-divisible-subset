@@ -5,8 +5,7 @@ function nonDivisibleSubset(s, k) {
     // Here we are creating an array where all values are 0, to the length of k which will be used to 
     // count how many numbers in S produce the remainder at the index.
     let remainderCount = new Array(k).fill(0); 
-    console.log(remainderCount);
-    for (i in s){ //loop finds remainder after each value in S is modulo by k - adds 1 to remainderCount for each found
+    for (let i in s){ //loop finds remainder after each value in s % k - adds 1 to remainderCount for each found
         remainder = s[i] % k;
         console.log(remainder);
         remainderCount[remainder] +=1;
