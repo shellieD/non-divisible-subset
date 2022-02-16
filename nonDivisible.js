@@ -31,7 +31,7 @@ function nonDivisibleSubset(s, k) {
     return subset;
 }
 
-nonDivisibleSubset([1, 7, 2, 4] 3);
+nonDivisibleSubset([1, 7, 2, 4], 3);
 
 
 
