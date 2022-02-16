@@ -25,6 +25,12 @@ function nonDivisibleSubset(s, k) {
     // If there are more than 1 numbers where k 5 2 == 0, then only add 1.
     if (k % 2 == 0) {
         subset += (Math.min(remainderCount[k/2], 1));
+    }
+
+    // need to check for pairs where the remainders == k 
+    // and only take the maximum count from one of the pairs
+    for (let i = 1; i < k/2; i ++) {
+        subset += (Math.max(remainderCount[i], remainderCount[k-i]));
         console.log(subset);
     }
 }
