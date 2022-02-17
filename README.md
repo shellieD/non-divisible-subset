@@ -81,4 +81,5 @@ for (let i = 1; i < k/2; i ++) {
     }
     return subset;
 `` 
+
 Once the loop is completed and all conditions are met, the subset is returned which gives us the maximum length of an array where given a set of distinct integers the sum of any 2 numbers in S is not evenly divisible by k.
