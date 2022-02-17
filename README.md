@@ -27,9 +27,12 @@ The first part of the function initialises a new array to the length of <strong>
 
 because... 
 
-1 % 4 = 1
+1 % 4 = 1 
+<br>
 7 % 4 = 3
+<br>
 2 % 4 = 2
+<br>
 4 % 4 = 0
 
 ``
