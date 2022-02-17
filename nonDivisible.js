@@ -5,7 +5,7 @@ function nonDivisibleSubset(s, k) {
     // If k is 4, then only remainders 0, 1, 2, 3 are possible.
     let remainderCount = new Array(k).fill(0); 
     for (let i in s){ //loop finds remainder after each value in s % k - adds 1 to remainderCount for each found
-        remainder = s[i] % k;
+        let remainder = s[i] % k;
         remainderCount[remainder] += 1;
     }
 
@@ -30,4 +30,4 @@ function nonDivisibleSubset(s, k) {
     return subset;
 }
 
-console.log(nonDivisibleSubset([1, 7, 2, 4], 3));
+console.log(nonDivisibleSubset([1, 7, 2, 4], 4));
