@@ -13,13 +13,13 @@ The above problem statement can be solved by determining the remainder of each n
 
 * <strong>Condition 1 - </strong>Only one number with a remainder of 0, therefore perfectly divisibly by <strong>K</strong> can be included in the subset.  If you add two numbers together which are perfectly divisible by <strong>K</strong> then it stands to reason that the sum of said numbers will also be divisible by <strong>K</strong>.
 
-* <strong>Condition 2 - </strong>If <strong>K</strong> is even, then only one number with a remainder of half of <strong>K</strong> can be included in the subset.  If two numbers with the remainder of half of <strong>K</strong> are added together, then the sum of those numbers will be perfectly divisible by <strong>K</strong>.  For example, if <strong>K</strong> is 4, and you have the numbers 2 and 6 which, by themselves are not perfectly disivisble by 4 but both leave a remainder of 2 (half of <strong>K</strong>), then when added together, the sum will be perfectly divisible by 4(<strong>K</strong>).  Therefore 2 and 6 cannot be included in the same subset.  e.g. 2 % 4 = 2 |  6 % 4 = 2 |  2 + 6 = 8 |  8 % 4 = 0
+* <strong>Condition 2 - </strong>If <strong>K</strong> is even, then only one number with a remainder of half of <strong>K</strong> can be included in the subset.  If two numbers with the remainder of half of <strong>K</strong> are added together, then the sum of those numbers will be perfectly divisible by <strong>K</strong>.  For example, if <strong>K</strong> is 4, and you have the numbers 2 and 6 which, by themselves are not perfectly disivisble by 4 but both leave a remainder of 2 (half of <strong>K</strong>), then when added together, the sum will be perfectly divisible by 4(<strong>K</strong>).  Therefore 2 and 6 cannot be included in the same subset. <br> e.g. <br> 2 % 4 = 2 <br> 6 % 4 = 2 <br> 2 + 6 = 8 <br> 8 % 4 = 0
 
-* <strong>Condition 3 - </strong>You can not have two numbers in the subset where the remainders of both numbers add up to K.  As an example, again if <strong>K</strong> is 4, and you have the numbers 5 and 7, neither are perfectly divisible by 4 but give the remainders 1 and 3 respectively, which once added are equal to 4(<strong>K</strong>).  Therefore, 5 and 7 cannot be included in the same subset as the sum of those two numbers would be exactly divisivible by 4. e.g. 5 + 7 = 12 | 12 % 4 = 0
+* <strong>Condition 3 - </strong>You can not have two numbers in the subset where the remainders of both numbers add up to K.  As an example, again if <strong>K</strong> is 4, and you have the numbers 5 and 7, neither are perfectly divisible by 4 but give the remainders 1 and 3 respectively, which once added are equal to 4(<strong>K</strong>).  Therefore, 5 and 7 cannot be included in the same subset as the sum of those two numbers would be exactly divisivible by 4. <br> e.g. <br> 5 + 7 = 12 <br>12 % 4 = 0
 
 ## Function Logic
 
-The first part of the function initialises a new array to the length of <strong>K</strong> where all values are set to 0.  This new array will be used to count how manynumbe We then iterate over the original array [S] and divide each value by <strong>K</strong> and add 1 at the corresponding index value.   If we use the example that K is 4, the only remainders from numbers when divided by 4 will be 0, 1, 2, and 3.  If the values of S are [1, 7, 2, 4], then the remainder count array will be:
+The first part of the function initialises a new array to the length of <strong>K</strong> where all values are set to 0.  This new array will be used to count how many of the numbers give a certain remainder when divided by K.  To do this, we iterate over the original array [S] and divide each value by <strong>K</strong> and add 1 at the corresponding index value.   If we use the example that K is 4, the only remainders from numbers when divided by 4 will be 0, 1, 2, and 3.  If the values of S are [1, 7, 2, 4], then the remainder count array will be:
 
 | remainderCount | 0 | 1 | 2 | 3 |
 |----------------|---|---|---|---|
@@ -55,8 +55,6 @@ In order to satisfy <strong>Condition 1</strong>, we need to take the minimum va
 let subset = (Math.min(remainderCount[0], 1));
 ``
 
-<br>
-
 ### Dealing with Condition 2
 
 In order to satisty <strong>Condition 2</strong>, if <strong>K</strong> is EVEN, we need to find half of <strong>K</strong> and then in a similar vein as above, only take the minimum value of the number counted at remainderCount[k/2] or 1 and add it to the subset - as only a maximum of 1 number can be included in the subset where the remainder is half of <strong>K</strong>.  Again, in our example above, 2 is half of <strong>K</strong> and we only have 1 number which gives this remainder, so 1 is added to the subset.  If the value at remainderCount[k/2] was 0, then nothing would be added to the subset.  If the value at remainderCount[k/2] was 6, then only 1 would be added to the subset.
@@ -85,3 +83,6 @@ for (let i = 1; i < k/2; i ++) {
 `` 
 
 Once the loop is completed and all conditions are met, the subset is returned which gives us the maximum length of an array where given a set of distinct integers the sum of any 2 numbers in S is not evenly divisible by k.
+
+In the example used, the printed result would be 3.
+
